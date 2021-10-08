@@ -10,7 +10,7 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-RFDistortionAudioProcessorEditor::RFDistortionAudioProcessorEditor (RFDistortionAudioProcessor& p)
+ToyiDistortionAudioProcessorEditor::ToyiDistortionAudioProcessorEditor (ToyiDistortionAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     juce::Slider::SliderStyle style = juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag;
@@ -47,39 +47,54 @@ RFDistortionAudioProcessorEditor::RFDistortionAudioProcessorEditor (RFDistortion
 
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (400, 100);
+    setSize (400, 150);
 }
 
-RFDistortionAudioProcessorEditor::~RFDistortionAudioProcessorEditor()
+ToyiDistortionAudioProcessorEditor::~ToyiDistortionAudioProcessorEditor()
 {
 }
 
 //==============================================================================
-void RFDistortionAudioProcessorEditor::paint (juce::Graphics& g)
+void ToyiDistortionAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (juce::Colour(30,70,50));
 
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-
-    int 
+    const int 
       x = getWidth() / 4, 
       y = getHeight(), 
       w = 100, h = 100;
     
+    g.setColour (juce::Colours::lightseagreen);
+    g.setFont (juce::Font(30.f, 1));
+    g.drawFittedText (
+      "TOYI DISTORTION", 50, 0, 300, 40, juce::Justification::centred, 1);
+    g.setColour (juce::Colours::lightsteelblue);
+    g.setFont (juce::Font(12.0f, 2));
+    g.drawFittedText (
+      "by SARC", 50, 40, 300, 10, juce::Justification::centred, 1);
+    g.setColour (juce::Colours::white);
+    g.setFont (juce::Font(15.0f, juce::Font::plain));
+
     g.drawFittedText ("Drive", x*1-w, y-h, w, h, juce::Justification::centred, 1);
     g.drawFittedText ("Range", x*2-w, y-h, w, h, juce::Justification::centred, 1);
     g.drawFittedText ("Blend", x*3-w, y-h, w, h, juce::Justification::centred, 1);
     g.drawFittedText ("Volume",x*4-w, y-h, w, h, juce::Justification::centred, 1);
+
+    getLookAndFeel().setColour(
+      juce::Slider::thumbColourId, juce::Colours::seagreen);
+    getLookAndFeel().setColour(
+      juce::Slider::rotarySliderFillColourId, juce::Colours::orangered);
+    getLookAndFeel().setColour(
+      juce::Slider::rotarySliderOutlineColourId, juce::Colours::yellowgreen);
 }
 
-void RFDistortionAudioProcessorEditor::resized()
+void ToyiDistortionAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
 
-    int 
+    const int 
       x = (getWidth() / 4), 
       y = (getHeight() / 1), 
       w = 100, h = 100;

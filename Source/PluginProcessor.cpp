@@ -10,7 +10,7 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-RFDistortionAudioProcessor::RFDistortionAudioProcessor()
+ToyiDistortionAudioProcessor::ToyiDistortionAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
@@ -22,23 +22,22 @@ RFDistortionAudioProcessor::RFDistortionAudioProcessor()
                        )
 #endif
 {
-    createParametersLayout();
 }
 
-RFDistortionAudioProcessor::~RFDistortionAudioProcessor()
+ToyiDistortionAudioProcessor::~ToyiDistortionAudioProcessor()
 {
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout 
-        RFDistortionAudioProcessor::createParametersLayout()
+        ToyiDistortionAudioProcessor::createParametersLayout()
 {
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "DRIVE_ID",
         "Drive",
-        juce::NormalisableRange<float>(1.f, 500.f, 0.01, 0.5),
-        1.f
+        juce::NormalisableRange<float>(1.f, 500.f, 0.01, 0.75),
+        1.01
     ));
 
     layout.add(std::make_unique<juce::AudioParameterFloat>(
@@ -58,20 +57,20 @@ juce::AudioProcessorValueTreeState::ParameterLayout
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "VOLUME_ID",
         "Volume",
-        juce::NormalisableRange<float>(0.f, 2.f, 0.01, 0.5), 
-        1.f
+        juce::NormalisableRange<float>(0.01, 2.f, 0.01, 0.75), 
+        1.01
     ));
 
     return layout;
 }
 
 //==============================================================================
-const juce::String RFDistortionAudioProcessor::getName() const
+const juce::String ToyiDistortionAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
 
-bool RFDistortionAudioProcessor::acceptsMidi() const
+bool ToyiDistortionAudioProcessor::acceptsMidi() const
 {
    #if JucePlugin_WantsMidiInput
     return true;
@@ -80,7 +79,7 @@ bool RFDistortionAudioProcessor::acceptsMidi() const
    #endif
 }
 
-bool RFDistortionAudioProcessor::producesMidi() const
+bool ToyiDistortionAudioProcessor::producesMidi() const
 {
    #if JucePlugin_ProducesMidiOutput
     return true;
@@ -89,7 +88,7 @@ bool RFDistortionAudioProcessor::producesMidi() const
    #endif
 }
 
-bool RFDistortionAudioProcessor::isMidiEffect() const
+bool ToyiDistortionAudioProcessor::isMidiEffect() const
 {
    #if JucePlugin_IsMidiEffect
     return true;
@@ -98,50 +97,50 @@ bool RFDistortionAudioProcessor::isMidiEffect() const
    #endif
 }
 
-double RFDistortionAudioProcessor::getTailLengthSeconds() const
+double ToyiDistortionAudioProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int RFDistortionAudioProcessor::getNumPrograms()
+int ToyiDistortionAudioProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
 
-int RFDistortionAudioProcessor::getCurrentProgram()
+int ToyiDistortionAudioProcessor::getCurrentProgram()
 {
     return 0;
 }
 
-void RFDistortionAudioProcessor::setCurrentProgram (int index)
+void ToyiDistortionAudioProcessor::setCurrentProgram (int index)
 {
 }
 
-const juce::String RFDistortionAudioProcessor::getProgramName (int index)
+const juce::String ToyiDistortionAudioProcessor::getProgramName (int index)
 {
     return {};
 }
 
-void RFDistortionAudioProcessor::changeProgramName (int index, const juce::String& newName)
+void ToyiDistortionAudioProcessor::changeProgramName (int index, const juce::String& newName)
 {
 }
 
 //==============================================================================
-void RFDistortionAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void ToyiDistortionAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
 }
 
-void RFDistortionAudioProcessor::releaseResources()
+void ToyiDistortionAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool RFDistortionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
+bool ToyiDistortionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
   #if JucePlugin_IsMidiEffect
     juce::ignoreUnused (layouts);
@@ -166,7 +165,7 @@ bool RFDistortionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layo
 }
 #endif
 
-void RFDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void ToyiDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
@@ -215,18 +214,18 @@ void RFDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
 }
 
 //==============================================================================
-bool RFDistortionAudioProcessor::hasEditor() const
+bool ToyiDistortionAudioProcessor::hasEditor() const
 {
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-juce::AudioProcessorEditor* RFDistortionAudioProcessor::createEditor()
+juce::AudioProcessorEditor* ToyiDistortionAudioProcessor::createEditor()
 {
-    return new RFDistortionAudioProcessorEditor (*this);
+    return new ToyiDistortionAudioProcessorEditor (*this);
 }
 
 //==============================================================================
-void RFDistortionAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
+void ToyiDistortionAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
@@ -235,7 +234,7 @@ void RFDistortionAudioProcessor::getStateInformation (juce::MemoryBlock& destDat
     parameterState.state.writeToStream(mos);
 }
 
-void RFDistortionAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
+void ToyiDistortionAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
@@ -250,5 +249,5 @@ void RFDistortionAudioProcessor::setStateInformation (const void* data, int size
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new RFDistortionAudioProcessor();
+    return new ToyiDistortionAudioProcessor();
 }

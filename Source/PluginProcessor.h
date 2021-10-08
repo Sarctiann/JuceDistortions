@@ -14,12 +14,12 @@
 //==============================================================================
 /**
 */
-class RFDistortionAudioProcessor  : public juce::AudioProcessor
+class ToyiDistortionAudioProcessor  : public juce::AudioProcessor
 {
   public:
     //==============================================================================
-    RFDistortionAudioProcessor();
-    ~RFDistortionAudioProcessor() override;
+    ToyiDistortionAudioProcessor();
+    ~ToyiDistortionAudioProcessor() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -67,5 +67,5 @@ class RFDistortionAudioProcessor  : public juce::AudioProcessor
       createParametersLayout();
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RFDistortionAudioProcessor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ToyiDistortionAudioProcessor)
 };

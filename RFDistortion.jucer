@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="L1oTtT" name="RFDistortion" projectType="audioplug" useAppConfig="0"
+<JUCERPROJECT id="L1oTtT" name="ToyiDistortion" projectType="audioplug" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" companyName="AtlanticWorkshopp"
               pluginFormats="buildStandalone,buildVST,buildVST3" cppLanguageStandard="17"
-              pluginChannelConfigs="{1, 1}, {2, 2}">
-  <MAINGROUP id="zWQgMU" name="RFDistortion">
+              pluginChannelConfigs="{1, 1}, {2, 2}" pluginDesc="Sarc distortion based on many tutorial videos and various calculations in Geogebra"
+              pluginVST3Category="Distortion">
+  <MAINGROUP id="zWQgMU" name="ToyiDistortion">
     <GROUP id="{F21B4A87-47E9-46F5-7A3A-E14BAF9FA551}" name="Source">
       <FILE id="l1Tolu" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
@@ -19,8 +20,8 @@
   <EXPORTFORMATS>
     <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="RFDistortion"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="RFDistortion"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="ToyiDistortion"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="ToyiDistortion"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_audio_basics" path="../../../../.local/share/JUCE/modules"/>
