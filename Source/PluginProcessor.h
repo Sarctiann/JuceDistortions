@@ -9,13 +9,14 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "JucePluginDefines.h"
 
 //==============================================================================
 /**
 */
 class RFDistortionAudioProcessor  : public juce::AudioProcessor
 {
-public:
+  public:
     //==============================================================================
     RFDistortionAudioProcessor();
     ~RFDistortionAudioProcessor() override;
@@ -53,7 +54,18 @@ public:
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-private:
+    juce::AudioProcessorValueTreeState parameterState {
+      *this, 
+      nullptr,
+      "Parameters",
+      createParametersLayout()
+      };
+
+  private:
+
+    static juce::AudioProcessorValueTreeState::ParameterLayout 
+      createParametersLayout();
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (RFDistortionAudioProcessor)
 };

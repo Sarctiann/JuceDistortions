@@ -16,7 +16,7 @@
 */
 class RFDistortionAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
-public:
+  public:
     RFDistortionAudioProcessorEditor (RFDistortionAudioProcessor&);
     ~RFDistortionAudioProcessorEditor() override;
 
@@ -24,7 +24,22 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
-private:
+  private:
+
+    juce::Slider driveKnob;
+    juce::Slider rangeKnob;
+    juce::Slider blendKnob;
+    juce::Slider volumeKnob;
+
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>
+      driveAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>
+      rangeAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>
+      blendAttachment;
+    std::unique_ptr<juce::AudioProcessorValueTreeState::SliderAttachment>
+      volumeAttachment;
+
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     RFDistortionAudioProcessor& audioProcessor;

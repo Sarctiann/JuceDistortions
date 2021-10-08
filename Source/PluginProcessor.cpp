@@ -22,10 +22,47 @@ RFDistortionAudioProcessor::RFDistortionAudioProcessor()
                        )
 #endif
 {
+    createParametersLayout();
 }
 
 RFDistortionAudioProcessor::~RFDistortionAudioProcessor()
 {
+}
+
+juce::AudioProcessorValueTreeState::ParameterLayout 
+        RFDistortionAudioProcessor::createParametersLayout()
+{
+    juce::AudioProcessorValueTreeState::ParameterLayout layout;
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "DRIVE_ID",
+        "Drive",
+        juce::NormalisableRange<float>(1.f, 500.f, 0.01, 0.5),
+        1.f
+    ));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "RANGE_ID",
+        "Range",
+        juce::NormalisableRange<float>(0.f, 1.f, 0.01), 
+        0.f
+    ));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "BLEND_ID",
+        "Blend",
+        juce::NormalisableRange<float>(0.f, 1.f, 0.01), 
+        0.5
+    ));
+
+    layout.add(std::make_unique<juce::AudioParameterFloat>(
+        "VOLUME_ID",
+        "Volume",
+        juce::NormalisableRange<float>(0.f, 2.f, 0.01, 0.5), 
+        1.f
+    ));
+
+    return layout;
 }
 
 //==============================================================================
@@ -150,11 +187,30 @@ void RFDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer,
     // the samples and the outer loop is handling the channels.
     // Alternatively, you can process the samples with the channels
     // interleaved by keeping the same state.
+
+    float drive = *parameterState.getRawParameterValue("DRIVE_ID");
+    float range = *parameterState.getRawParameterValue("RANGE_ID");
+    float blend = *parameterState.getRawParameterValue("BLEND_ID");
+    float volume = *parameterState.getRawParameterValue("VOLUME_ID");
+    float PI = juce::MathConstants<float>::pi;
+
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
         auto* channelData = buffer.getWritePointer (channel);
 
-        // ..do something to the data...
+        for (int sample = 0; sample < buffer.getNumSamples(); ++sample)
+        {
+            float *sig = &channelData[sample];
+
+            float cleanSig = *sig * (1 - blend);
+
+            float ds = *sig * drive; // distorted signal
+            float soft = (2.f / PI ) * atan(ds) * (1 - range);
+            float hard = (ds < 1 && -1 < ds ? ds : ds < 0 ? -1 : 1) * range;
+            float distSig = ( soft + hard ) * blend;
+
+            channelData[sample] = (cleanSig + distSig) * volume;
+        }
     }
 }
 
@@ -175,12 +231,19 @@ void RFDistortionAudioProcessor::getStateInformation (juce::MemoryBlock& destDat
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
     // as intermediaries to make it easy to save and load complex data.
+    juce::MemoryOutputStream mos(destData, true);
+    parameterState.state.writeToStream(mos);
 }
 
 void RFDistortionAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
+    juce::ValueTree tree = juce::ValueTree::readFromData(data, sizeInBytes);
+    if( tree.isValid() )
+    {
+        parameterState.replaceState(tree);
+    }
 }
 
 //==============================================================================
