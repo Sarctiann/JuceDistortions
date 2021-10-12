@@ -36,7 +36,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "DRIVE_ID",
         "Drive",
-        juce::NormalisableRange<float>(1.f, 500.f, 0.01, 0.75),
+        juce::NormalisableRange<float>(1.f, 500.f, 0.01, 0.5),
         1.01
     ));
 
@@ -57,7 +57,7 @@ juce::AudioProcessorValueTreeState::ParameterLayout
     layout.add(std::make_unique<juce::AudioParameterFloat>(
         "VOLUME_ID",
         "Volume",
-        juce::NormalisableRange<float>(0.01, 2.f, 0.01, 0.75), 
+        juce::NormalisableRange<float>(0.01, 2.f, 0.01, 0.5), 
         1.01
     ));
 

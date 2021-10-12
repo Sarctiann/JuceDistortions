@@ -7,6 +7,9 @@
               pluginVST3Category="Distortion">
   <MAINGROUP id="zWQgMU" name="ToyiDistortion">
     <GROUP id="{F21B4A87-47E9-46F5-7A3A-E14BAF9FA551}" name="Source">
+      <GROUP id="{1637BAED-92A5-EA5D-1668-47609BAB4B63}" name="Resources">
+        <FILE id="H9evXV" name="ToyiDistBG.png" compile="0" resource="1" file="../../../../Im&#225;genes/ToyiDistBG.png"/>
+      </GROUP>
       <FILE id="l1Tolu" name="PluginProcessor.cpp" compile="1" resource="0"
             file="Source/PluginProcessor.cpp"/>
       <FILE id="eckxyX" name="PluginProcessor.h" compile="0" resource="0"

@@ -58,35 +58,54 @@ ToyiDistortionAudioProcessorEditor::~ToyiDistortionAudioProcessorEditor()
 void ToyiDistortionAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (juce::Colour(30,70,50));
+
+    
+    auto Image = juce::ImageCache::getFromMemory(
+      BinaryData::ToyiDistBG_png,
+      BinaryData::ToyiDistBG_pngSize);
+    g.drawImageAt(Image, 0, 0);
+    
 
     const int 
       x = getWidth() / 4, 
       y = getHeight(), 
       w = 100, h = 100;
     
-    g.setColour (juce::Colours::lightseagreen);
+    g.setColour (juce::Colours::mediumseagreen);
     g.setFont (juce::Font(30.f, 1));
     g.drawFittedText (
       "TOYI DISTORTION", 50, 0, 300, 40, juce::Justification::centred, 1);
-    g.setColour (juce::Colours::lightsteelblue);
+    g.setColour (juce::Colours::darkseagreen);
     g.setFont (juce::Font(12.0f, 2));
     g.drawFittedText (
       "by SARC", 50, 40, 300, 10, juce::Justification::centred, 1);
-    g.setColour (juce::Colours::white);
+    g.setColour (juce::Colours::darkseagreen);
     g.setFont (juce::Font(15.0f, juce::Font::plain));
 
-    g.drawFittedText ("Drive", x*1-w, y-h, w, h, juce::Justification::centred, 1);
-    g.drawFittedText ("Range", x*2-w, y-h, w, h, juce::Justification::centred, 1);
-    g.drawFittedText ("Blend", x*3-w, y-h, w, h, juce::Justification::centred, 1);
-    g.drawFittedText ("Volume",x*4-w, y-h, w, h, juce::Justification::centred, 1);
+    g.drawFittedText (
+      "Drive", x*1-w, y-h-10, w, h, juce::Justification::centred, 1);
+    g.drawFittedText (
+      "Range", x*2-w, y-h-10, w, h, juce::Justification::centred, 1);
+    g.drawFittedText (
+      "Blend", x*3-w, y-h-10, w, h, juce::Justification::centred, 1);
+    g.drawFittedText (
+      "Volume",x*4-w, y-h-10, w, h, juce::Justification::centred, 1);
+
+    g.drawFittedText (
+      ">>>",x*1-w, y-15, w, 5, juce::Justification::centred, 1);
+    g.drawFittedText (
+      "soft | hard",x*2-w, y-15, w, 5, juce::Justification::centred, 1);
+    g.drawFittedText (
+      "clean |  dirty",x*3-w, y-15, w, 5, juce::Justification::centred, 1);
+    g.drawFittedText (
+      ">>>",x*4-w, y-15, w, 5, juce::Justification::centred, 1);
 
     getLookAndFeel().setColour(
-      juce::Slider::thumbColourId, juce::Colours::seagreen);
+      juce::Slider::thumbColourId, juce::Colours::mediumseagreen);
     getLookAndFeel().setColour(
       juce::Slider::rotarySliderFillColourId, juce::Colours::orangered);
     getLookAndFeel().setColour(
-      juce::Slider::rotarySliderOutlineColourId, juce::Colours::yellowgreen);
+      juce::Slider::rotarySliderOutlineColourId, juce::Colours::orange);
 }
 
 void ToyiDistortionAudioProcessorEditor::resized()
@@ -99,8 +118,8 @@ void ToyiDistortionAudioProcessorEditor::resized()
       y = (getHeight() / 1), 
       w = 100, h = 100;
     
-    driveKnob.setBounds(  x*1-w, y-h, w, h);
-    rangeKnob.setBounds(  x*2-w, y-h, w, h);
-    blendKnob.setBounds(  x*3-w, y-h, w, h);
-    volumeKnob.setBounds( x*4-w, y-h, w, h);
+    driveKnob.setBounds(  x*1-w, y-h-10, w, h);
+    rangeKnob.setBounds(  x*2-w, y-h-10, w, h);
+    blendKnob.setBounds(  x*3-w, y-h-10, w, h);
+    volumeKnob.setBounds( x*4-w, y-h-10, w, h);
 }
