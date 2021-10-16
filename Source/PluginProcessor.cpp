@@ -10,7 +10,7 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-ToyiDistortionAudioProcessor::ToyiDistortionAudioProcessor()
+AleDistortionAudioProcessor::AleDistortionAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
      : AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
@@ -24,12 +24,12 @@ ToyiDistortionAudioProcessor::ToyiDistortionAudioProcessor()
 {
 }
 
-ToyiDistortionAudioProcessor::~ToyiDistortionAudioProcessor()
+AleDistortionAudioProcessor::~AleDistortionAudioProcessor()
 {
 }
 
 juce::AudioProcessorValueTreeState::ParameterLayout 
-        ToyiDistortionAudioProcessor::createParametersLayout()
+        AleDistortionAudioProcessor::createParametersLayout()
 {
     juce::AudioProcessorValueTreeState::ParameterLayout layout;
 
@@ -65,12 +65,12 @@ juce::AudioProcessorValueTreeState::ParameterLayout
 }
 
 //==============================================================================
-const juce::String ToyiDistortionAudioProcessor::getName() const
+const juce::String AleDistortionAudioProcessor::getName() const
 {
     return JucePlugin_Name;
 }
 
-bool ToyiDistortionAudioProcessor::acceptsMidi() const
+bool AleDistortionAudioProcessor::acceptsMidi() const
 {
    #if JucePlugin_WantsMidiInput
     return true;
@@ -79,7 +79,7 @@ bool ToyiDistortionAudioProcessor::acceptsMidi() const
    #endif
 }
 
-bool ToyiDistortionAudioProcessor::producesMidi() const
+bool AleDistortionAudioProcessor::producesMidi() const
 {
    #if JucePlugin_ProducesMidiOutput
     return true;
@@ -88,7 +88,7 @@ bool ToyiDistortionAudioProcessor::producesMidi() const
    #endif
 }
 
-bool ToyiDistortionAudioProcessor::isMidiEffect() const
+bool AleDistortionAudioProcessor::isMidiEffect() const
 {
    #if JucePlugin_IsMidiEffect
     return true;
@@ -97,50 +97,50 @@ bool ToyiDistortionAudioProcessor::isMidiEffect() const
    #endif
 }
 
-double ToyiDistortionAudioProcessor::getTailLengthSeconds() const
+double AleDistortionAudioProcessor::getTailLengthSeconds() const
 {
     return 0.0;
 }
 
-int ToyiDistortionAudioProcessor::getNumPrograms()
+int AleDistortionAudioProcessor::getNumPrograms()
 {
     return 1;   // NB: some hosts don't cope very well if you tell them there are 0 programs,
                 // so this should be at least 1, even if you're not really implementing programs.
 }
 
-int ToyiDistortionAudioProcessor::getCurrentProgram()
+int AleDistortionAudioProcessor::getCurrentProgram()
 {
     return 0;
 }
 
-void ToyiDistortionAudioProcessor::setCurrentProgram (int index)
+void AleDistortionAudioProcessor::setCurrentProgram (int index)
 {
 }
 
-const juce::String ToyiDistortionAudioProcessor::getProgramName (int index)
+const juce::String AleDistortionAudioProcessor::getProgramName (int index)
 {
     return {};
 }
 
-void ToyiDistortionAudioProcessor::changeProgramName (int index, const juce::String& newName)
+void AleDistortionAudioProcessor::changeProgramName (int index, const juce::String& newName)
 {
 }
 
 //==============================================================================
-void ToyiDistortionAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void AleDistortionAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
 }
 
-void ToyiDistortionAudioProcessor::releaseResources()
+void AleDistortionAudioProcessor::releaseResources()
 {
     // When playback stops, you can use this as an opportunity to free up any
     // spare memory, etc.
 }
 
 #ifndef JucePlugin_PreferredChannelConfigurations
-bool ToyiDistortionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
+bool AleDistortionAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
   #if JucePlugin_IsMidiEffect
     juce::ignoreUnused (layouts);
@@ -165,7 +165,7 @@ bool ToyiDistortionAudioProcessor::isBusesLayoutSupported (const BusesLayout& la
 }
 #endif
 
-void ToyiDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
+void AleDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce::MidiBuffer& midiMessages)
 {
     juce::ScopedNoDenormals noDenormals;
     auto totalNumInputChannels  = getTotalNumInputChannels();
@@ -205,7 +205,9 @@ void ToyiDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
 
             float ds = *sig * drive; // distorted signal
             float soft = (2.f / PI ) * atan(ds) * (1 - range);
-            float hard = (ds < 1 && -1 < ds ? ds : ds < 0 ? -1 : 1) * range;
+            float hard = (
+                ds < 1 && -1 < ds ? ds : ds < 0 ? -1 - ds/750 : 1 - ds/750 
+            ) * range;
             float distSig = ( soft + hard ) * blend;
 
             channelData[sample] = (cleanSig + distSig) * volume;
@@ -214,18 +216,18 @@ void ToyiDistortionAudioProcessor::processBlock (juce::AudioBuffer<float>& buffe
 }
 
 //==============================================================================
-bool ToyiDistortionAudioProcessor::hasEditor() const
+bool AleDistortionAudioProcessor::hasEditor() const
 {
     return true; // (change this to false if you choose to not supply an editor)
 }
 
-juce::AudioProcessorEditor* ToyiDistortionAudioProcessor::createEditor()
+juce::AudioProcessorEditor* AleDistortionAudioProcessor::createEditor()
 {
-    return new ToyiDistortionAudioProcessorEditor (*this);
+    return new AleDistortionAudioProcessorEditor (*this);
 }
 
 //==============================================================================
-void ToyiDistortionAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
+void AleDistortionAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
     // You should use this method to store your parameters in the memory block.
     // You could do that either as raw data, or use the XML or ValueTree classes
@@ -234,7 +236,7 @@ void ToyiDistortionAudioProcessor::getStateInformation (juce::MemoryBlock& destD
     parameterState.state.writeToStream(mos);
 }
 
-void ToyiDistortionAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
+void AleDistortionAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
     // You should use this method to restore your parameters from this memory block,
     // whose contents will have been created by the getStateInformation() call.
@@ -249,5 +251,5 @@ void ToyiDistortionAudioProcessor::setStateInformation (const void* data, int si
 // This creates new instances of the plugin..
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
-    return new ToyiDistortionAudioProcessor();
+    return new AleDistortionAudioProcessor();
 }

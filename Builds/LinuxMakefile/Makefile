@@ -35,30 +35,30 @@ ifeq ($(CONFIG),Debug)
     TARGET_ARCH := 
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DJUCE_DISPLAY_SPLASH_SCREEN=0" "-DJUCE_USE_DARK_SPLASH_SCREEN=1" "-DJUCE_PROJUCER_VERSION=0x60102" "-DJUCE_MODULE_AVAILABLE_juce_audio_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_devices=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_formats=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_processors=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_utils=1" "-DJUCE_MODULE_AVAILABLE_juce_core=1" "-DJUCE_MODULE_AVAILABLE_juce_data_structures=1" "-DJUCE_MODULE_AVAILABLE_juce_events=1" "-DJUCE_MODULE_AVAILABLE_juce_graphics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_extra=1" "-DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1" "-DJUCE_VST3_CAN_REPLACE_VST2=0" "-DJUCE_STRICT_REFCOUNTEDPOINTER=1" "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0" "-DJucePlugin_Enable_IAA=0" "-DJucePlugin_Name=\"ToyiDistortion\"" "-DJucePlugin_Desc=\"Sarc distortion based on many tutorial videos and various calculations in Geogebra\"" "-DJucePlugin_Manufacturer=\"AtlanticWorkshopp\"" "-DJucePlugin_ManufacturerWebsite=\"\"" "-DJucePlugin_ManufacturerEmail=\"\"" "-DJucePlugin_ManufacturerCode=0x4d616e75" "-DJucePlugin_PluginCode=0x4c316f74" "-DJucePlugin_IsSynth=0" "-DJucePlugin_WantsMidiInput=0" "-DJucePlugin_ProducesMidiOutput=0" "-DJucePlugin_IsMidiEffect=0" "-DJucePlugin_EditorRequiresKeyboardFocus=0" "-DJucePlugin_Version=1.0.0" "-DJucePlugin_VersionCode=0x10000" "-DJucePlugin_VersionString=\"1.0.0\"" "-DJucePlugin_VSTUniqueID=JucePlugin_PluginCode" "-DJucePlugin_VSTCategory=kPlugCategEffect" "-DJucePlugin_Vst3Category=\"Fx|Distortion\"" "-DJucePlugin_AUMainType='aufx'" "-DJucePlugin_AUSubType=JucePlugin_PluginCode" "-DJucePlugin_AUExportPrefix=ToyiDistortionAU" "-DJucePlugin_AUExportPrefixQuoted=\"ToyiDistortionAU\"" "-DJucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_CFBundleIdentifier=com.AtlanticWorkshopp.ToyiDistortion" "-DJucePlugin_RTASCategory=0" "-DJucePlugin_RTASManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_RTASProductId=JucePlugin_PluginCode" "-DJucePlugin_RTASDisableBypass=0" "-DJucePlugin_RTASDisableMultiMono=0" "-DJucePlugin_AAXIdentifier=com.AtlanticWorkshopp.ToyiDistortion" "-DJucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_AAXProductId=JucePlugin_PluginCode" "-DJucePlugin_AAXCategory=0" "-DJucePlugin_AAXDisableBypass=0" "-DJucePlugin_AAXDisableMultiMono=0" "-DJucePlugin_IAAType=0x61757278" "-DJucePlugin_IAASubType=JucePlugin_PluginCode" "-DJucePlugin_IAAName=\"AtlanticWorkshopp: ToyiDistortion\"" "-DJucePlugin_VSTNumMidiInputs=16" "-DJucePlugin_VSTNumMidiOutputs=16" "-DJucePlugin_MaxNumInputChannels=2" "-DJucePlugin_MaxNumOutputChannels=2" "-DJucePlugin_PreferredChannelConfigurations={1, 1}, {2, 2}" "-DJUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I/home/sarctiann/.local/share/JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I/home/sarctiann/SDKs/VST_SDK_2.4 -I../../JuceLibraryCode -I/home/sarctiann/.local/share/JUCE/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DDEBUG=1" "-D_DEBUG=1" "-DJUCE_DISPLAY_SPLASH_SCREEN=0" "-DJUCE_USE_DARK_SPLASH_SCREEN=1" "-DJUCE_PROJUCER_VERSION=0x60102" "-DJUCE_MODULE_AVAILABLE_juce_audio_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_devices=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_formats=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_processors=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_utils=1" "-DJUCE_MODULE_AVAILABLE_juce_core=1" "-DJUCE_MODULE_AVAILABLE_juce_data_structures=1" "-DJUCE_MODULE_AVAILABLE_juce_events=1" "-DJUCE_MODULE_AVAILABLE_juce_graphics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_extra=1" "-DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1" "-DJUCE_VST3_CAN_REPLACE_VST2=0" "-DJUCE_STRICT_REFCOUNTEDPOINTER=1" "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0" "-DJucePlugin_Enable_IAA=0" "-DJucePlugin_Name=\"AleDistortion\"" "-DJucePlugin_Desc=\"Sarc distortion based on many tutorial videos and various calculations in Geogebra\"" "-DJucePlugin_Manufacturer=\"AtlanticWorkshopp\"" "-DJucePlugin_ManufacturerWebsite=\"\"" "-DJucePlugin_ManufacturerEmail=\"\"" "-DJucePlugin_ManufacturerCode=0x4d616e75" "-DJucePlugin_PluginCode=0x4c316f74" "-DJucePlugin_IsSynth=0" "-DJucePlugin_WantsMidiInput=0" "-DJucePlugin_ProducesMidiOutput=0" "-DJucePlugin_IsMidiEffect=0" "-DJucePlugin_EditorRequiresKeyboardFocus=0" "-DJucePlugin_Version=1.0.0" "-DJucePlugin_VersionCode=0x10000" "-DJucePlugin_VersionString=\"1.0.0\"" "-DJucePlugin_VSTUniqueID=JucePlugin_PluginCode" "-DJucePlugin_VSTCategory=kPlugCategEffect" "-DJucePlugin_Vst3Category=\"Fx|Distortion\"" "-DJucePlugin_AUMainType='aufx'" "-DJucePlugin_AUSubType=JucePlugin_PluginCode" "-DJucePlugin_AUExportPrefix=AleDistortionAU" "-DJucePlugin_AUExportPrefixQuoted=\"AleDistortionAU\"" "-DJucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_CFBundleIdentifier=com.AtlanticWorkshopp.AleDistortion" "-DJucePlugin_RTASCategory=0" "-DJucePlugin_RTASManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_RTASProductId=JucePlugin_PluginCode" "-DJucePlugin_RTASDisableBypass=0" "-DJucePlugin_RTASDisableMultiMono=0" "-DJucePlugin_AAXIdentifier=com.AtlanticWorkshopp.AleDistortion" "-DJucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_AAXProductId=JucePlugin_PluginCode" "-DJucePlugin_AAXCategory=0" "-DJucePlugin_AAXDisableBypass=0" "-DJucePlugin_AAXDisableMultiMono=0" "-DJucePlugin_IAAType=0x61757278" "-DJucePlugin_IAASubType=JucePlugin_PluginCode" "-DJucePlugin_IAAName=\"AtlanticWorkshopp: AleDistortion\"" "-DJucePlugin_VSTNumMidiInputs=16" "-DJucePlugin_VSTNumMidiOutputs=16" "-DJucePlugin_MaxNumInputChannels=2" "-DJucePlugin_MaxNumOutputChannels=2" "-DJucePlugin_PreferredChannelConfigurations={1, 1}, {2, 2}" "-DJUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I/home/sarctiann/.local/share/JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I/home/sarctiann/SDKs/VST_SDK_2.4 -I../../JuceLibraryCode -I/home/sarctiann/.local/share/JUCE/modules $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST := 
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST := -shared -Wl,--no-undefined
-  JUCE_TARGET_VST := ToyiDistortion.so
+  JUCE_TARGET_VST := AleDistortion.so
   JUCE_VSTDESTDIR := $(HOME)/.vst
-  JUCE_COPYCMD_VST := $(JUCE_OUTDIR)/ToyiDistortion.so $(JUCE_VSTDESTDIR)
+  JUCE_COPYCMD_VST := $(JUCE_OUTDIR)/AleDistortion.so $(JUCE_VSTDESTDIR)
 
   JUCE_CPPFLAGS_VST3 := 
   JUCE_CFLAGS_VST3 := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST3 := -shared -Wl,--no-undefined
-  JUCE_VST3DIR := ToyiDistortion.vst3
+  JUCE_VST3DIR := AleDistortion.vst3
   VST3_PLATFORM_ARCH := $(shell $(CXX) make_helpers/arch_detection.cpp 2>&1 | tr '\n' ' ' | sed "s/.*JUCE_ARCH \([a-zA-Z0-9_-]*\).*/\1/")
   JUCE_VST3SUBDIR := Contents/$(VST3_PLATFORM_ARCH)-linux
-  JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/ToyiDistortion.so
+  JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/AleDistortion.so
   JUCE_VST3DESTDIR := $(HOME)/.vst3
   JUCE_COPYCMD_VST3 := $(JUCE_OUTDIR)/$(JUCE_VST3DIR) $(JUCE_VST3DESTDIR)
 
   JUCE_CPPFLAGS_STANDALONE_PLUGIN := 
-  JUCE_TARGET_STANDALONE_PLUGIN := ToyiDistortion
+  JUCE_TARGET_STANDALONE_PLUGIN := AleDistortion
 
   JUCE_CPPFLAGS_SHARED_CODE :=  "-DJUCE_SHARED_CODE=1"
-  JUCE_TARGET_SHARED_CODE := ToyiDistortion.a
+  JUCE_TARGET_SHARED_CODE := AleDistortion.a
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -g -ggdb -O0 $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=c++17 $(CXXFLAGS)
@@ -77,30 +77,30 @@ ifeq ($(CONFIG),Release)
     TARGET_ARCH := 
   endif
 
-  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DJUCE_DISPLAY_SPLASH_SCREEN=0" "-DJUCE_USE_DARK_SPLASH_SCREEN=1" "-DJUCE_PROJUCER_VERSION=0x60102" "-DJUCE_MODULE_AVAILABLE_juce_audio_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_devices=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_formats=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_processors=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_utils=1" "-DJUCE_MODULE_AVAILABLE_juce_core=1" "-DJUCE_MODULE_AVAILABLE_juce_data_structures=1" "-DJUCE_MODULE_AVAILABLE_juce_events=1" "-DJUCE_MODULE_AVAILABLE_juce_graphics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_extra=1" "-DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1" "-DJUCE_VST3_CAN_REPLACE_VST2=0" "-DJUCE_STRICT_REFCOUNTEDPOINTER=1" "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0" "-DJucePlugin_Enable_IAA=0" "-DJucePlugin_Name=\"ToyiDistortion\"" "-DJucePlugin_Desc=\"Sarc distortion based on many tutorial videos and various calculations in Geogebra\"" "-DJucePlugin_Manufacturer=\"AtlanticWorkshopp\"" "-DJucePlugin_ManufacturerWebsite=\"\"" "-DJucePlugin_ManufacturerEmail=\"\"" "-DJucePlugin_ManufacturerCode=0x4d616e75" "-DJucePlugin_PluginCode=0x4c316f74" "-DJucePlugin_IsSynth=0" "-DJucePlugin_WantsMidiInput=0" "-DJucePlugin_ProducesMidiOutput=0" "-DJucePlugin_IsMidiEffect=0" "-DJucePlugin_EditorRequiresKeyboardFocus=0" "-DJucePlugin_Version=1.0.0" "-DJucePlugin_VersionCode=0x10000" "-DJucePlugin_VersionString=\"1.0.0\"" "-DJucePlugin_VSTUniqueID=JucePlugin_PluginCode" "-DJucePlugin_VSTCategory=kPlugCategEffect" "-DJucePlugin_Vst3Category=\"Fx|Distortion\"" "-DJucePlugin_AUMainType='aufx'" "-DJucePlugin_AUSubType=JucePlugin_PluginCode" "-DJucePlugin_AUExportPrefix=ToyiDistortionAU" "-DJucePlugin_AUExportPrefixQuoted=\"ToyiDistortionAU\"" "-DJucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_CFBundleIdentifier=com.AtlanticWorkshopp.ToyiDistortion" "-DJucePlugin_RTASCategory=0" "-DJucePlugin_RTASManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_RTASProductId=JucePlugin_PluginCode" "-DJucePlugin_RTASDisableBypass=0" "-DJucePlugin_RTASDisableMultiMono=0" "-DJucePlugin_AAXIdentifier=com.AtlanticWorkshopp.ToyiDistortion" "-DJucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_AAXProductId=JucePlugin_PluginCode" "-DJucePlugin_AAXCategory=0" "-DJucePlugin_AAXDisableBypass=0" "-DJucePlugin_AAXDisableMultiMono=0" "-DJucePlugin_IAAType=0x61757278" "-DJucePlugin_IAASubType=JucePlugin_PluginCode" "-DJucePlugin_IAAName=\"AtlanticWorkshopp: ToyiDistortion\"" "-DJucePlugin_VSTNumMidiInputs=16" "-DJucePlugin_VSTNumMidiOutputs=16" "-DJucePlugin_MaxNumInputChannels=2" "-DJucePlugin_MaxNumOutputChannels=2" "-DJucePlugin_PreferredChannelConfigurations={1, 1}, {2, 2}" "-DJUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I/home/sarctiann/.local/share/JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I/home/sarctiann/SDKs/VST_SDK_2.4 -I../../JuceLibraryCode -I/home/sarctiann/.local/share/JUCE/modules $(CPPFLAGS)
+  JUCE_CPPFLAGS := $(DEPFLAGS) "-DLINUX=1" "-DNDEBUG=1" "-DJUCE_DISPLAY_SPLASH_SCREEN=0" "-DJUCE_USE_DARK_SPLASH_SCREEN=1" "-DJUCE_PROJUCER_VERSION=0x60102" "-DJUCE_MODULE_AVAILABLE_juce_audio_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_devices=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_formats=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_plugin_client=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_processors=1" "-DJUCE_MODULE_AVAILABLE_juce_audio_utils=1" "-DJUCE_MODULE_AVAILABLE_juce_core=1" "-DJUCE_MODULE_AVAILABLE_juce_data_structures=1" "-DJUCE_MODULE_AVAILABLE_juce_events=1" "-DJUCE_MODULE_AVAILABLE_juce_graphics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_basics=1" "-DJUCE_MODULE_AVAILABLE_juce_gui_extra=1" "-DJUCE_GLOBAL_MODULE_SETTINGS_INCLUDED=1" "-DJUCE_VST3_CAN_REPLACE_VST2=0" "-DJUCE_STRICT_REFCOUNTEDPOINTER=1" "-DJucePlugin_Build_VST=1" "-DJucePlugin_Build_VST3=1" "-DJucePlugin_Build_AU=0" "-DJucePlugin_Build_AUv3=0" "-DJucePlugin_Build_RTAS=0" "-DJucePlugin_Build_AAX=0" "-DJucePlugin_Build_Standalone=1" "-DJucePlugin_Build_Unity=0" "-DJucePlugin_Enable_IAA=0" "-DJucePlugin_Name=\"AleDistortion\"" "-DJucePlugin_Desc=\"Sarc distortion based on many tutorial videos and various calculations in Geogebra\"" "-DJucePlugin_Manufacturer=\"AtlanticWorkshopp\"" "-DJucePlugin_ManufacturerWebsite=\"\"" "-DJucePlugin_ManufacturerEmail=\"\"" "-DJucePlugin_ManufacturerCode=0x4d616e75" "-DJucePlugin_PluginCode=0x4c316f74" "-DJucePlugin_IsSynth=0" "-DJucePlugin_WantsMidiInput=0" "-DJucePlugin_ProducesMidiOutput=0" "-DJucePlugin_IsMidiEffect=0" "-DJucePlugin_EditorRequiresKeyboardFocus=0" "-DJucePlugin_Version=1.0.0" "-DJucePlugin_VersionCode=0x10000" "-DJucePlugin_VersionString=\"1.0.0\"" "-DJucePlugin_VSTUniqueID=JucePlugin_PluginCode" "-DJucePlugin_VSTCategory=kPlugCategEffect" "-DJucePlugin_Vst3Category=\"Fx|Distortion\"" "-DJucePlugin_AUMainType='aufx'" "-DJucePlugin_AUSubType=JucePlugin_PluginCode" "-DJucePlugin_AUExportPrefix=AleDistortionAU" "-DJucePlugin_AUExportPrefixQuoted=\"AleDistortionAU\"" "-DJucePlugin_AUManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_CFBundleIdentifier=com.AtlanticWorkshopp.AleDistortion" "-DJucePlugin_RTASCategory=0" "-DJucePlugin_RTASManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_RTASProductId=JucePlugin_PluginCode" "-DJucePlugin_RTASDisableBypass=0" "-DJucePlugin_RTASDisableMultiMono=0" "-DJucePlugin_AAXIdentifier=com.AtlanticWorkshopp.AleDistortion" "-DJucePlugin_AAXManufacturerCode=JucePlugin_ManufacturerCode" "-DJucePlugin_AAXProductId=JucePlugin_PluginCode" "-DJucePlugin_AAXCategory=0" "-DJucePlugin_AAXDisableBypass=0" "-DJucePlugin_AAXDisableMultiMono=0" "-DJucePlugin_IAAType=0x61757278" "-DJucePlugin_IAASubType=JucePlugin_PluginCode" "-DJucePlugin_IAAName=\"AtlanticWorkshopp: AleDistortion\"" "-DJucePlugin_VSTNumMidiInputs=16" "-DJucePlugin_VSTNumMidiOutputs=16" "-DJucePlugin_MaxNumInputChannels=2" "-DJucePlugin_MaxNumOutputChannels=2" "-DJucePlugin_PreferredChannelConfigurations={1, 1}, {2, 2}" "-DJUCE_STANDALONE_APPLICATION=JucePlugin_Build_Standalone" "-DJUCER_LINUX_MAKE_6D53C8B4=1" "-DJUCE_APP_VERSION=1.0.0" "-DJUCE_APP_VERSION_HEX=0x10000" $(shell pkg-config --cflags alsa freetype2 libcurl webkit2gtk-4.0 gtk+-x11-3.0) -pthread -I/home/sarctiann/.local/share/JUCE/modules/juce_audio_processors/format_types/VST3_SDK -I/home/sarctiann/SDKs/VST_SDK_2.4 -I../../JuceLibraryCode -I/home/sarctiann/.local/share/JUCE/modules $(CPPFLAGS)
 
   JUCE_CPPFLAGS_VST := 
   JUCE_CFLAGS_VST := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST := -shared -Wl,--no-undefined
-  JUCE_TARGET_VST := ToyiDistortion.so
+  JUCE_TARGET_VST := AleDistortion.so
   JUCE_VSTDESTDIR := $(HOME)/.vst
-  JUCE_COPYCMD_VST := $(JUCE_OUTDIR)/ToyiDistortion.so $(JUCE_VSTDESTDIR)
+  JUCE_COPYCMD_VST := $(JUCE_OUTDIR)/AleDistortion.so $(JUCE_VSTDESTDIR)
 
   JUCE_CPPFLAGS_VST3 := 
   JUCE_CFLAGS_VST3 := -fPIC -fvisibility=hidden
   JUCE_LDFLAGS_VST3 := -shared -Wl,--no-undefined
-  JUCE_VST3DIR := ToyiDistortion.vst3
+  JUCE_VST3DIR := AleDistortion.vst3
   VST3_PLATFORM_ARCH := $(shell $(CXX) make_helpers/arch_detection.cpp 2>&1 | tr '\n' ' ' | sed "s/.*JUCE_ARCH \([a-zA-Z0-9_-]*\).*/\1/")
   JUCE_VST3SUBDIR := Contents/$(VST3_PLATFORM_ARCH)-linux
-  JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/ToyiDistortion.so
+  JUCE_TARGET_VST3 := $(JUCE_VST3DIR)/$(JUCE_VST3SUBDIR)/AleDistortion.so
   JUCE_VST3DESTDIR := $(HOME)/.vst3
   JUCE_COPYCMD_VST3 := $(JUCE_OUTDIR)/$(JUCE_VST3DIR) $(JUCE_VST3DESTDIR)
 
   JUCE_CPPFLAGS_STANDALONE_PLUGIN := 
-  JUCE_TARGET_STANDALONE_PLUGIN := ToyiDistortion
+  JUCE_TARGET_STANDALONE_PLUGIN := AleDistortion
 
   JUCE_CPPFLAGS_SHARED_CODE :=  "-DJUCE_SHARED_CODE=1"
-  JUCE_TARGET_SHARED_CODE := ToyiDistortion.a
+  JUCE_TARGET_SHARED_CODE := AleDistortion.a
 
   JUCE_CFLAGS += $(JUCE_CPPFLAGS) $(TARGET_ARCH) -fPIC -O3 $(CFLAGS)
   JUCE_CXXFLAGS += $(JUCE_CFLAGS) -std=c++17 $(CXXFLAGS)
@@ -123,7 +123,6 @@ OBJECTS_STANDALONE_PLUGIN := \
 OBJECTS_SHARED_CODE := \
   $(JUCE_OBJDIR)/PluginProcessor_a059e380.o \
   $(JUCE_OBJDIR)/PluginEditor_94d4fb09.o \
-  $(JUCE_OBJDIR)/BinaryData_ce4232d4.o \
   $(JUCE_OBJDIR)/include_juce_audio_basics_8a4e984a.o \
   $(JUCE_OBJDIR)/include_juce_audio_devices_63111d02.o \
   $(JUCE_OBJDIR)/include_juce_audio_formats_15f82001.o \
@@ -149,7 +148,7 @@ Standalone : $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN)
 $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) : $(OBJECTS_VST) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
 	@pkg-config --print-errors alsa freetype2 libcurl
-	@echo Linking "ToyiDistortion - VST"
+	@echo Linking "AleDistortion - VST"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
 	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
@@ -160,7 +159,7 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_VST) : $(OBJECTS_VST) $(RESOURCES) $(JUCE_OUTDIR)/$
 $(JUCE_OUTDIR)/$(JUCE_TARGET_VST3) : $(OBJECTS_VST3) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
 	@pkg-config --print-errors alsa freetype2 libcurl
-	@echo Linking "ToyiDistortion - VST3"
+	@echo Linking "AleDistortion - VST3"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
 	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
@@ -172,7 +171,7 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_VST3) : $(OBJECTS_VST3) $(RESOURCES) $(JUCE_OUTDIR)
 $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) : $(OBJECTS_STANDALONE_PLUGIN) $(RESOURCES) $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
 	@pkg-config --print-errors alsa freetype2 libcurl
-	@echo Linking "ToyiDistortion - Standalone Plugin"
+	@echo Linking "AleDistortion - Standalone Plugin"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
 	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
@@ -181,7 +180,7 @@ $(JUCE_OUTDIR)/$(JUCE_TARGET_STANDALONE_PLUGIN) : $(OBJECTS_STANDALONE_PLUGIN) $
 $(JUCE_OUTDIR)/$(JUCE_TARGET_SHARED_CODE) : $(OBJECTS_SHARED_CODE) $(RESOURCES)
 	@command -v pkg-config >/dev/null 2>&1 || { echo >&2 "pkg-config not installed. Please, install it."; exit 1; }
 	@pkg-config --print-errors alsa freetype2 libcurl
-	@echo Linking "ToyiDistortion - Shared Code"
+	@echo Linking "AleDistortion - Shared Code"
 	-$(V_AT)mkdir -p $(JUCE_BINDIR)
 	-$(V_AT)mkdir -p $(JUCE_LIBDIR)
 	-$(V_AT)mkdir -p $(JUCE_OUTDIR)
@@ -210,11 +209,6 @@ $(JUCE_OBJDIR)/PluginProcessor_a059e380.o: ../../Source/PluginProcessor.cpp
 $(JUCE_OBJDIR)/PluginEditor_94d4fb09.o: ../../Source/PluginEditor.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling PluginEditor.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/BinaryData_ce4232d4.o: ../../JuceLibraryCode/BinaryData.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling BinaryData.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/include_juce_audio_basics_8a4e984a.o: ../../JuceLibraryCode/include_juce_audio_basics.cpp
@@ -278,11 +272,11 @@ $(JUCE_OBJDIR)/include_juce_gui_extra_6dee1c1a.o: ../../JuceLibraryCode/include_
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 clean:
-	@echo Cleaning ToyiDistortion
+	@echo Cleaning AleDistortion
 	$(V_AT)$(CLEANCMD)
 
 strip:
-	@echo Stripping ToyiDistortion
+	@echo Stripping AleDistortion
 	-$(V_AT)$(STRIP) --strip-unneeded $(JUCE_OUTDIR)/$(TARGET)
 
 -include $(OBJECTS_VST:%.o=%.d)

@@ -10,7 +10,7 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-ToyiDistortionAudioProcessorEditor::ToyiDistortionAudioProcessorEditor (ToyiDistortionAudioProcessor& p)
+AleDistortionAudioProcessorEditor::AleDistortionAudioProcessorEditor (AleDistortionAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
 {
     juce::Slider::SliderStyle style = juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag;
@@ -50,36 +50,30 @@ ToyiDistortionAudioProcessorEditor::ToyiDistortionAudioProcessorEditor (ToyiDist
     setSize (400, 150);
 }
 
-ToyiDistortionAudioProcessorEditor::~ToyiDistortionAudioProcessorEditor()
+AleDistortionAudioProcessorEditor::~AleDistortionAudioProcessorEditor()
 {
 }
 
 //==============================================================================
-void ToyiDistortionAudioProcessorEditor::paint (juce::Graphics& g)
+void AleDistortionAudioProcessorEditor::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-
+    g.fillAll(juce::Colour(252,120,183));
     
-    auto Image = juce::ImageCache::getFromMemory(
-      BinaryData::ToyiDistBG_png,
-      BinaryData::ToyiDistBG_pngSize);
-    g.drawImageAt(Image, 0, 0);
-    
-
     const int 
       x = getWidth() / 4, 
       y = getHeight(), 
       w = 100, h = 100;
     
-    g.setColour (juce::Colours::mediumseagreen);
-    g.setFont (juce::Font(30.f, 1));
+    g.setColour (juce::Colour(255,255,255));
+    g.setFont (juce::Font(30.f, juce::Font::bold | juce::Font::italic));
     g.drawFittedText (
-      "TOYI DISTORTION", 50, 0, 300, 40, juce::Justification::centred, 1);
-    g.setColour (juce::Colours::darkseagreen);
-    g.setFont (juce::Font(12.0f, 2));
+      "AM - 37", 50, 0, 300, 40, juce::Justification::centred, 1);
+    g.setColour (juce::Colour(147,135,247));
+    g.setFont (juce::Font(12.0f, 1));
     g.drawFittedText (
       "by SARC", 50, 40, 300, 10, juce::Justification::centred, 1);
-    g.setColour (juce::Colours::darkseagreen);
+    g.setColour (juce::Colour(255,255,255));
     g.setFont (juce::Font(15.0f, juce::Font::plain));
 
     g.drawFittedText (
@@ -101,14 +95,14 @@ void ToyiDistortionAudioProcessorEditor::paint (juce::Graphics& g)
       ">>>",x*4-w, y-15, w, 5, juce::Justification::centred, 1);
 
     getLookAndFeel().setColour(
-      juce::Slider::thumbColourId, juce::Colours::mediumseagreen);
+      juce::Slider::thumbColourId, juce::Colour(255,255,255));
     getLookAndFeel().setColour(
-      juce::Slider::rotarySliderFillColourId, juce::Colours::orangered);
+      juce::Slider::rotarySliderFillColourId, juce::Colour(116,246,232));
     getLookAndFeel().setColour(
-      juce::Slider::rotarySliderOutlineColourId, juce::Colours::orange);
+      juce::Slider::rotarySliderOutlineColourId, juce::Colour(253,155,202));
 }
 
-void ToyiDistortionAudioProcessorEditor::resized()
+void AleDistortionAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..

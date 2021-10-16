@@ -14,11 +14,11 @@
 //==============================================================================
 /**
 */
-class ToyiDistortionAudioProcessorEditor  : public juce::AudioProcessorEditor
+class AleDistortionAudioProcessorEditor  : public juce::AudioProcessorEditor
 {
   public:
-    ToyiDistortionAudioProcessorEditor (ToyiDistortionAudioProcessor&);
-    ~ToyiDistortionAudioProcessorEditor() override;
+    AleDistortionAudioProcessorEditor (AleDistortionAudioProcessor&);
+    ~AleDistortionAudioProcessorEditor() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -42,7 +42,7 @@ class ToyiDistortionAudioProcessorEditor  : public juce::AudioProcessorEditor
 
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
-    ToyiDistortionAudioProcessor& audioProcessor;
+    AleDistortionAudioProcessor& audioProcessor;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ToyiDistortionAudioProcessorEditor)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AleDistortionAudioProcessorEditor)
 };

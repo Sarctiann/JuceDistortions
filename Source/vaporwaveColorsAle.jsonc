@@ -1,0 +1,29 @@
+{
+    "colors": [
+        {
+            // rosa oscuro
+            "hex": "#fc78b7",
+            "rgb": [252,120,183]
+        },
+        {
+            //rosa claro
+            "hex": "#fd9bca", 
+            "rgb": [253,155,202]
+        },
+        {
+            // blanco
+            "hex": "#ffffff", 
+            "rgb": [255,255,255]
+        },
+        {
+            // verde
+            "hex": "#74f6e8", 
+            "rgb": [116,246,232]
+        },
+        {
+            // indigo
+            "hex": "#9387f7", 
+            "rgb": [147,135,247]
+        }
+    ]
+}
