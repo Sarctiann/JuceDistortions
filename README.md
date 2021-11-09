@@ -16,3 +16,7 @@ On the [`ale`](https://github.com/Sarctiann/JuceDistortions/tree/ale) branch I d
 ![](https://github.com/Sarctiann/JuceDistortions/blob/master/Builds/Windows/screenshots/AleDistortion.png)
 
 This are the maths behind: [Geogebra/AleDistortion](https://www.geogebra.org/m/mmkmswrn)
+
+## Important:
+I included the Juce headings just in case ... But these will not work for you because the routes of the Juce modules are in a different place in your system.
+You must open RFDistortion.jucer with Projucer to setup the exporters and generate these files properly.
