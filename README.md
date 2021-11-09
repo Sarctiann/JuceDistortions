@@ -20,3 +20,21 @@ This are the maths behind: [Geogebra/AleDistortion](https://www.geogebra.org/m/m
 ## Important:
 I included the Juce headings just in case ... But these will not work for you because the routes of the Juce modules are in a different place in your system.
 You must open RFDistortion.jucer with Projucer to setup the exporters and generate these files properly.
+
+To work with this you should use other branch:
+    ```
+    git checkout master # For ToyiDistortion
+        # or
+    git checkout ale # For AleDistortion
+    ```
+    once there, (on Linux) you can build the application:
+    ```
+    cd Build/LinuxMakefile
+    make
+    ```
+    To Run it:
+    ```
+    ./build/ToyiDistortion # For ToyiDistortion
+        # or
+    ./build/AleDistortion # For AleDistortion
+    ```
